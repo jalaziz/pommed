@@ -2,6 +2,8 @@ ChangeLog for pommed
 --------------------
 
 version 1.40:
+    - pommed: add support for Mid 2012 Macbook Pro:
+    MacBookPro9,1 (15"), MacBookPro9,2 (13"), MacBookPro10,1 (15" Retina).
 
 version 1.39:
 	- pommed: add new sysfs backlight driver apple_backlight.
@@ -65,7 +67,7 @@ version 1.29:
 
 version 1.28:
 	- pommed: added support for the MacBookPro5,3 (15" MacBookPro
-	June 2009) 
+	June 2009)
 
 version 1.27:
 	- pommed: added support for the MacBook5,2 (white MacBook).
@@ -278,7 +280,7 @@ version 1.2:
 		  + PowerBook3,5: PowerBook G4 Titanium 15"
 		  + PowerBook5,1: PowerBook G4 Aluminium 17"
 		  + PowerBook5,2: PowerBook G4 Aluminium 15" September 2003
-		  + PowerBook5,3: PowerBook G4 Aluminium 17" September 2003	
+		  + PowerBook5,3: PowerBook G4 Aluminium 17" September 2003
 		  + PowerBook5,4: PowerBook G4 Aluminium 15" April 2004
 		  + PowerBook5,8: PowerBook G4 Aluminium 15"
 		  + PowerBook5,9: PowerBook G4 Aluminium 17"

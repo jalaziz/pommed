@@ -692,29 +692,58 @@ evdev_is_wellspring5(unsigned short *id)
 }
 
 /* MacBookPro9,1 (15" Mid 2012) */
+/* MacBookPro9,2 (13" Mid 2012) */
 static int
-evdev_is_2012mac(unsigned short *id)
+evdev_is_wellspring5a(unsigned short *id)
 {
   unsigned short product = id[ID_PRODUCT];
-  
+
   if (id[ID_BUS] != BUS_USB)
    return 0;
 
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
    return 0;
 
-  if ((product == USB_PRODUCT_ID_MAC2012_ANSI)
-      || (product == USB_PRODUCT_ID_MAC2012_ISO)
-      || (product == USB_PRODUCT_ID_MAC2012_JIS))
+  if ((product == USB_PRODUCT_ID_WELLSPRING5A_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING5A_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING5A_JIS))
     {
-      logdebug(" -> Mac2012 USB assembly\n");
+      logdebug(" -> WellSpring Va USB assembly\n");
 
       kbd_set_fnmode();
+
       return 1;
     }
 
   return 0;
 }
+
+/* MacBookPro10,1 (15" Retina Mid 2012) */
+static int
+evdev_is_wellspring7(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+   return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+   return 0;
+
+  if ((product == USB_PRODUCT_ID_WELLSPRING7_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING7_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING7_JIS))
+    {
+      logdebug(" -> WellSpring VII USB assembly\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
 /* Any internal keyboard */
 static int
 evdev_is_internal(unsigned short *id)
@@ -728,7 +757,8 @@ evdev_is_internal(unsigned short *id)
 	  || evdev_is_wellspring4(id)
 	  || evdev_is_wellspring4a(id)
 	  || evdev_is_wellspring5(id)
-          || evdev_is_2012mac(id));
+    || evdev_is_wellspring5a(id)
+    || evdev_is_wellspring7(id));
 }
 
 
