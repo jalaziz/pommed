@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- */ 
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,6 +44,7 @@ enum {
 #else
   SYSFS_DRIVER_MBP,
   SYSFS_DRIVER_APPLE,
+  SYSFS_DRIVER_GMUX,
   SYSFS_DRIVER_NVIDIA,
   SYSFS_DRIVER_NOUVEAU,
   SYSFS_DRIVER_ACPI,
@@ -67,6 +68,7 @@ static char *actual_brightness[] =
 #else
     "/sys/class/backlight/mbp_backlight/actual_brightness",
     "/sys/class/backlight/apple_backlight/actual_brightness",
+    "/sys/class/backlight/gmux_backlight/actual_brightness",
     "/sys/class/backlight/nvidia_backlight/actual_brightness",
     "/sys/class/backlight/nv_backlight/actual_brightness",
     "/sys/class/backlight/acpi_video0/actual_brightness",
@@ -85,6 +87,7 @@ static char *brightness[] =
 #else
     "/sys/class/backlight/mbp_backlight/brightness",
     "/sys/class/backlight/apple_backlight/brightness",
+    "/sys/class/backlight/gmux_backlight/brightness",
     "/sys/class/backlight/nvidia_backlight/brightness",
     "/sys/class/backlight/nv_backlight/brightness",
     "/sys/class/backlight/acpi_video0/brightness",
@@ -103,6 +106,7 @@ static char *max_brightness[] =
 #else
     "/sys/class/backlight/mbp_backlight/max_brightness",
     "/sys/class/backlight/apple_backlight/max_brightness",
+    "/sys/class/backlight/gmux_backlight/max_brightness",
     "/sys/class/backlight/nvidia_backlight/max_brightness",
     "/sys/class/backlight/nv_backlight/max_brightness",
     "/sys/class/backlight/acpi_video0/max_brightness",
