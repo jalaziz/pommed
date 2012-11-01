@@ -1,0 +1,83 @@
+This package was debianized by Julien BLACHE <jblache@debian.org> on
+Wed, 29 Nov 2006 22:21:10 +0100.
+
+It was downloaded from: http://alioth.debian.org/projects/pommed
+
+Upstream Authors:
+    Julien BLACHE <jb@jblache.org>
+
+    And contributors:
+    Soeren SONNENBURG <debian@nn7.de>
+    Yves-Alexis Perez <corsac@corsac.net>
+    Romain Beauxis <toots@rastageeks.org>
+    daniel g. siegel <dgsiegel@gmail.com>
+
+Copyright:
+    Copyright (C) 2006-2008 Julien BLACHE <jb@jblache.org>
+
+    PowerBook support,
+      Copyright (C) 2006 Yves-Alexis PEREZ <corsac@corsac.net>
+
+    Radeon X1600 backlight control routines,
+      Copyright (C) 2006 Nicolas BOICHAT <nicolas@boichat.ch>
+
+    Intel GMA950 backlight control routines,
+      Copyright (C) 2006 Ryan LORTIE <desrt@desrt.ca>
+
+    nVidia backlight control routines,
+      Copyright (C) 2006 Felipe Alfaro Solana <felipe_alfaro @linuxmail.org>
+      Copyright (C) 2006 Nicolas Boichat <nicolas @boichat.ch>
+
+    Base ALSA code by Romain BEAUXIS <toots@rastageeks.org>
+
+    Portions of the gpomme code,
+      Copyright (C) 2006, 2008 Soeren SONNENBURG <debian@nn7.de>
+      Copyright (C) 2007 daniel g. siegel <dgsiegel@gmail.com>
+      and code taken from gtkpbbuttons; some themes from gpomme derived from
+      gtkpbbuttons themes.
+
+    wmpomme is based on wmwave by Carsten SCHUERMANN <carsten@schuermann.org>
+
+    On PowerPC laptops, pommed uses OFlib,
+      Copyright (C) 2006 Alastair POOLE <netstar@gatheringofgray.com>
+
+License:
+ * pommed/mactel/nv8600mgt_backlight.c, pommed/mactel/x1600_backlight.c
+   pommed/pmac/ofapi/*:
+
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+
+ * Everything else:
+
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; version 2 of the License.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General Public License v2
+can be found in `/usr/share/common-licenses/GPL-2'.
+
+The Debian packaging is (C) 2006-2008, Julien BLACHE <jblache@debian.org> and
+is licensed under the GPL; the complete text of the GNU General Public License
+can be found in `/usr/share/common-licenses/GPL'.

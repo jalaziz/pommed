@@ -1,0 +1,49 @@
+Description: force empty inotify and timerfd build flags
+ Our glibc is recent enough to include inotify and timerfd syscalls. The
+ simple check in the Makefiles has been broken by the switch to multiarch
+ header location in glibc.
+Author: Julien BLACHE <jblache@debian.org>
+Bug-Debian: http://bugs.debian.org/639078
+
+Index: pommed-1.39~dfsg/gpomme/Makefile
+===================================================================
+--- pommed-1.39~dfsg.orig/gpomme/Makefile	2011-06-02 11:24:05.000000000 +0200
++++ pommed-1.39~dfsg/gpomme/Makefile	2011-09-14 19:07:13.873816668 +0200
+@@ -12,7 +12,7 @@
+ CONFUSE_CFLAGS = $(shell pkg-config libconfuse --cflags)
+ CONFUSE_LIBS = $(shell pkg-config libconfuse --libs)
+ 
+-INOTIFY_CFLAGS = $(shell test -e /usr/include/sys/inotify.h || echo -DNO_SYS_INOTIFY_H)
++INOTIFY_CFLAGS =
+ 
+ CFLAGS = -g -O2 -Wall $(DBUS_CFLAGS) $(DBUSGLIB_CFLAGS) $(GTK_CFLAGS) $(CONFUSE_CFLAGS) $(INOTIFY_CFLAGS)
+ LDLIBS = -lpthread -lX11 $(DBUS_LIBS) $(DBUSGLIB_LIBS) $(GTK_LIBS) $(CONFUSE_LIBS)
+Index: pommed-1.39~dfsg/pommed/Makefile
+===================================================================
+--- pommed-1.39~dfsg.orig/pommed/Makefile	2011-06-02 11:24:05.000000000 +0200
++++ pommed-1.39~dfsg/pommed/Makefile	2011-09-14 19:06:58.177943582 +0200
+@@ -14,9 +14,9 @@
+ CONFUSE_CFLAGS = $(shell pkg-config libconfuse --cflags)
+ CONFUSE_LIBS = $(shell pkg-config libconfuse --libs)
+ 
+-INOTIFY_CFLAGS = $(shell test -e /usr/include/sys/inotify.h || echo -DNO_SYS_INOTIFY_H)
++INOTIFY_CFLAGS =
+ 
+-TIMERFD_CFLAGS = $(shell test -e /usr/include/sys/timerfd.h || echo -DNO_SYS_TIMERFD_H)
++TIMERFD_CFLAGS =
+ 
+ CFLAGS = -g -O2 -Wall $(DBUS_CFLAGS) $(ALSA_CFLAGS) $(AUDIOFILE_CFLAGS) $(CONFUSE_CFLAGS) $(INOTIFY_CFLAGS) $(TIMERFD_CFLAGS)
+ 
+Index: pommed-1.39~dfsg/wmpomme/Makefile
+===================================================================
+--- pommed-1.39~dfsg.orig/wmpomme/Makefile	2011-06-02 11:24:05.000000000 +0200
++++ pommed-1.39~dfsg/wmpomme/Makefile	2011-09-14 19:07:05.977880619 +0200
+@@ -3,7 +3,7 @@
+ DBUS_CFLAGS = $(shell pkg-config dbus-1 --cflags) -DDBUS_API_SUBJECT_TO_CHANGE
+ DBUS_LIBS = $(shell pkg-config dbus-1 --libs)
+ 
+-TIMERFD_CFLAGS = $(shell test -e /usr/include/sys/timerfd.h || echo -DNO_SYS_TIMERFD_H)
++TIMERFD_CFLAGS =
+ 
+ CFLAGS = -g -O2 -Wall $(DBUS_CFLAGS) $(TIMERFD_CFLAGS)
+ LDLIBS = -lrt -lXpm -lXext -lX11 $(DBUS_LIBS)

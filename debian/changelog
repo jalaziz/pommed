@@ -1,0 +1,553 @@
+pommed (1.40~dfsg-1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Jameel Al-Aziz <me@jalaziz.net>  Wed, 31 Oct 2012 22:10:39 -0800
+
+pommed (1.39~dfsg-2build1) precise; urgency=low
+
+  * Rebuild to pick new audiofile's shlibs (LP: #922036)
+
+ -- Alessio Treglia <quadrispro@ubuntu.com>  Fri, 27 Jan 2012 12:45:10 +0100
+
+pommed (1.39~dfsg-2) unstable; urgency=low
+
+  * debian/patches/build_flags.patch:
+    + Added; force empty inotify and timerfd build flags (closes: #639078).
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 14 Sep 2011 19:10:29 +0200
+
+pommed (1.39~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Bump Standards-Version to 3.9.2 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 02 Jun 2011 11:31:04 +0200
+
+pommed (1.38~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Allow disabling audio support entirely (closes: #404352).
+
+  * debian/control:
+    + Remove Conflicts/Replaces mbpeventd; this was a long time ago.
+  * debian/pommed.preinst:
+    + Remove; mbpeventd migration is not needed anymore.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 19 Mar 2011 12:34:59 +0100
+
+pommed (1.37~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 05 Feb 2011 18:23:29 +0100
+
+pommed (1.36~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Put libraries in LDLIBS, not LDFLAGS (closes: #607585).
+    + Fixes for pmac keyboard backlight (closes: #611149).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 05 Feb 2011 14:28:58 +0100
+
+pommed (1.35~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 13 Nov 2010 11:44:22 +0100
+
+pommed (1.34~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Bump Standards-Version to 3.9.1 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 31 Jul 2010 16:03:21 +0200
+
+pommed (1.33~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Adds support for the MacBookPro6,1, MacBookPro6,2, MacBookPro7,1 and
+      MacBook6,1 (closes: #576013).
+
+  * debian/control:
+    + Remove Build-dep on libglade2-dev.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 24 Jun 2010 18:40:05 +0200
+
+pommed (1.32~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * Package converted to source format 3.0 (quilt).
+
+  * debian/control:
+    + Bump Standards-Version to 3.8.4 (no changes).
+  * debian/pommed.init:
+    + Added $remote_fs to Required-{Start,Stop}.
+
+ -- Julien BLACHE <jblache@debian.org>  Fri, 19 Mar 2010 18:26:38 +0100
+
+pommed (1.31~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Adds support for the MacBookPro5,4 (closes: #564092).
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 10 Jan 2010 11:10:15 +0100
+
+pommed (1.30~dfsg-2) unstable; urgency=low
+
+  * Add -lX11 to gpomme to fix build with gold (closes: #556069).
+
+ -- Julien BLACHE <jblache@debian.org>  Fri, 13 Nov 2009 18:37:54 +0100
+
+pommed (1.30~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Added the iBook to the list of supported machines in the description.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 22 Oct 2009 21:30:25 +0200
+
+pommed (1.29~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Moved VT state code into pommed to overcome permissions issues
+      (closes: #551591).
+
+  * debian/control:
+    + Tighten gpomme & wmpomme dependencies on pommed due to the
+      above-mentioned change.
+  * debian/pommed.init:
+    + Do not fail on restart if pommed is not running (closes: #551587).
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 19 Oct 2009 22:00:55 +0200
+
+pommed (1.28~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Bump Standards-Version to 3.8.3 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 13 Sep 2009 20:39:57 +0200
+
+pommed (1.27~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Bump Standards-Version to 3.8.2 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 01 Aug 2009 10:29:46 +0200
+
+pommed (1.26~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/control:
+    + Bump Standards-Version to 3.8.1 (no changes).
+    + Update pommed's description regarding ambient light sensors and
+      keyboard backlight.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 14 Mar 2009 14:21:23 +0100
+
+pommed (1.25~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Fix DBus configuration to allow method calls to org.pommed.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 04 Jan 2009 14:23:46 +0100
+
+pommed (1.24~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 25 Dec 2008 13:34:52 +0100
+
+pommed (1.23~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Add support for LCD backlight on late 2008 laptops (closes: #504358).
+
+  * debian/pommed.init:
+    + Demote dbus to Should-Start instead of Required-Start to avoid useless
+      restarts of pommed triggered by the dbus init script.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 11 Dec 2008 16:05:27 +0100
+
+pommed (1.22~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 10 Nov 2008 11:21:41 +0100
+
+pommed (1.21~dfsg-3) unstable; urgency=low
+
+  * gpomme:
+    + Added japanese translation courtesy of Nobuhiro Iwamatsu
+      (closes: #501463).
+
+  * debian/pommed.postinst, debian/pommed.preinst, debian/pommed.postrm,
+    debian/pommed.prerm:
+    + Make all maintainer scripts set -e.
+
+ -- Julien BLACHE <jblache@debian.org>  Tue, 07 Oct 2008 18:37:34 +0200
+
+pommed (1.21~dfsg-2) unstable; urgency=low
+
+  * debian/copyright:
+    + Update.
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 14 Jul 2008 19:06:52 +0200
+
+pommed (1.21~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 14 Jul 2008 16:16:04 +0200
+
+pommed (1.20~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/pommed.init:
+    + Add dbus dependency.
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 16 Jun 2008 18:44:39 +0200
+
+pommed (1.19~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + WARNING: requires Linux 2.6.25 or later.
+    + Make pommed use a bit less CPU time, especially on machines not having
+      ambient light sensors (MacBook, MacBook Air, iBook & early PowerBook).
+    + Make gpomme wake up (way) less often.
+
+  * debian/control:
+    + Get rid of the libsmbios-dev build-dep.
+    + Add build-dep on libdbus-glib-1-dev.
+    + Bump Standards-Version to 3.8.0 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 07 Jun 2008 12:03:25 +0200
+
+pommed (1.18~dfsg-2) unstable; urgency=low
+
+  * debian/rules:
+    + Fix installation path for the SVG icon.
+    + Comment out useless dh_desktop call.
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 21 May 2008 19:17:08 +0200
+
+pommed (1.18~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 18 May 2008 12:08:28 +0200
+
+pommed (1.17~dfsg-2) unstable; urgency=low
+
+  * debian/control:
+    + Build-Depend on libpci-dev instead of pciutils-dev.
+    + Mark the libpci-dev build-dependency as i386+amd64-only.
+    + Drop zlib1g-dev build-dependency.
+    + Mention the MacBook Air in the description.
+  * pommed/Makefile:
+    + Changed for now-shared libpci.
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 28 Apr 2008 18:59:47 +0200
+
+pommed (1.17~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 17 Apr 2008 19:21:33 +0200
+
+pommed (1.16~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Support for the January 2008 MacBookAir1,1.
+    + Support for the February 2008 MacBookPro4,1 (untested).
+    + Support for the February 2008 MacBook4,1 (untested).
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 02 Mar 2008 09:57:02 +0100
+
+pommed (1.15~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Add support for the power_supply class, needed with 2.6.24 and up.
+  * debian/rules:
+    + Install upstream changelog (closes: #463433).
+  * debian/control:
+    + s/DBus/D-Bus/
+    + Build-Depend on debhelper (>= 5.0.51~) due to the use of dh_icons.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 09 Feb 2008 09:23:02 +0100
+
+pommed (1.14~dfsg-2) unstable; urgency=low
+
+  * debian/rules:
+    + Use dh_desktop to register .desktop files.
+
+ -- Julien BLACHE <jblache@debian.org>  Tue, 25 Dec 2007 10:46:28 +0100
+
+pommed (1.14~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Fix bug in the audio sample loading code (closes: #455780).
+    + Change default beep sound (closes: #455881).
+  * debian/rules:
+    + Install icons for gpomme in /usr/share/icons/hicolor and call dh_icons.
+    + Move wmpomme.xpm to /usr/share/pixmaps.
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 12 Dec 2007 13:47:01 +0100
+
+pommed (1.13~dfsg-2) unstable; urgency=low
+
+  * debian/rules:
+    + Install /usr/share/pommed/goutte.wav.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 08 Dec 2007 17:23:25 +0100
+
+pommed (1.13~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + New option to disable beep on volume change (closes: #452530).
+    + Fixes busy loop due to inotify events handling (closes: #454510).
+  * debian/control:
+    + Bump gpomme and wmpomme dependency on pommed >= 1.13~dfsg-1.
+    + Bump Standards-Version to 3.7.3 (no changes).
+
+ -- Julien BLACHE <jblache@debian.org>  Fri, 07 Dec 2007 13:49:19 +0100
+
+pommed (1.12~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Do not expect at least 3 evdevs at startup. The MacBook has only
+      2 evdevs, and the pmac machines can have only one (closes: #451966).
+
+ -- Julien BLACHE <jblache@debian.org>  Mon, 19 Nov 2007 15:49:04 +0100
+
+pommed (1.11~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 18 Nov 2007 13:47:18 +0100
+
+pommed (1.10~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 06 Oct 2007 13:36:13 +0200
+
+pommed (1.9~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 08 Sep 2007 11:41:40 +0200
+
+pommed (1.8~dfsg-2) unstable; urgency=low
+
+  * debian/gpomme.menu, debian/wmpomme.menu:
+    + Added a description.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 05 Aug 2007 18:38:09 +0200
+
+pommed (1.8~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Support for the nVidia GeForce 8600M GT found in the MacBookPro3,1.
+    + gpomme now comes with an icon.
+  * debian/control:
+    + Tighten dependencies for gpomme and wmpomme wrt pommed (>= 1.8~dfsg-1).
+  * debian/rules:
+    + Install icons for gpomme and wmpomme.
+  * debian/gpomme.menu, debian/wmpomme.menu:
+    + Add an icon for gpomme and wmpomme (closes: #408048).
+    + Move menu entries to Applications/System/Monitoring.
+
+ -- Julien BLACHE <jblache@debian.org>  Fri, 27 Jul 2007 16:35:22 +0200
+
+pommed (1.7~dfsg-2) unstable; urgency=low
+
+  * debian/control:
+    + Fixed libofapi-dev version in build-deps (closes: #432652).
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 11 Jul 2007 16:59:17 +0200
+
+pommed (1.7~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Partial support for the MacBookPro3,1 (Core2 Duo, 15" & 17", June 2007).
+  * debian/control:
+    + Bump libofapi build-dep to >= 20070620-1.
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 27 Jun 2007 09:29:38 +0200
+
+pommed (1.6~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Support new "Apple Inc." SMBIOS vendor ID.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 27 May 2007 16:08:26 +0200
+
+pommed (1.5~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Use eject(1) again for CD ejection (closes: #422857).
+    + Fallback to identifying the LMU controller by name (closes: #425094).
+  * debian/control:
+    + Depend on eject again.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 19 May 2007 20:04:02 +0200
+
+pommed (1.4~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Support for PMU05 PowerBooks (5,8 & 5,9) (closes: #421326).
+    + Simple keyboard backlight toggle mode (closes: #408649).
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 06 May 2007 14:41:13 +0200
+
+pommed (1.3~dfsg-3) unstable; urgency=low
+
+  * debian/rules:
+    + Install gpomme.glade in /usr/share/gpomme (closes: #421068).
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 26 Apr 2007 11:18:59 +0200
+
+pommed (1.3~dfsg-2) unstable; urgency=low
+
+  * debian/control:
+    + Add missing libglade2-dev build-dependency.
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 26 Apr 2007 10:01:57 +0200
+
+pommed (1.3~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Build-Depend on libofapi-dev on powerpc.
+    + Build-Depend on libsmbios-dev >= 0.13.5-1 to avoid broken libsmbios
+      versions.
+    + Drop dependency on eject.
+  * debian/rules:
+    + Install gpomme-c.desktop.
+  * debian/gpomme.menu:
+    + Add gpomme configuration GUI.
+
+ -- Julien BLACHE <jblache@debian.org>  Wed, 25 Apr 2007 19:08:12 +0200
+
+pommed (1.2~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Fixed typo in pommed(1) (closes: #408049).
+    + Added support for all G4 laptops (closes: #412414).
+  * debian/pommed.init:
+    + Fixed typo (closes: #408049).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat,  3 Mar 2007 14:28:43 +0100
+
+pommed (1.1~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    + Fixed errors in gpomme(1) (closes: #405934).
+  * debian/control:
+    + Add powerpc to supported architectures.
+    + Mention PowerBook laptops in the description.
+    + Build-Depends on libsmbios-dev for i386 and amd64 only.
+  * debian/copyright:
+    + Changed upstream URL, point to Alioth.
+    + Added more Copyright notices.
+  * debian/rules:
+    + Install the appropriate config file depending on the architecture.
+    + Call dh_installmenu.
+  * debian/pommed.init:
+    + Added LSB header.
+  * debian/pommed.docs:
+    + Added.
+  * debian/wmpomme.menu:
+    + Added.
+  * debian/gpomme.menu:
+    + Added.
+
+ -- Julien BLACHE <jblache@debian.org>  Tue,  9 Jan 2007 20:42:01 +0100
+
+pommed (1.0-2) unstable; urgency=low
+
+  * debian/pommed.preinst:
+    + Fix missing check for mbpeventd.conf existence.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 24 Dec 2006 16:05:08 +0100
+
+pommed (1.0-1) unstable; urgency=low
+
+  * New upstream release.
+    - Name changed, mbpeventd is now pommed.
+    - Upstream now has a ChangeLog (closes: #404323).
+    - pommed now has a debug option (closes: #404351).
+    - pommed can now set the fnmode (closes: #404014).
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 24 Dec 2006 14:27:06 +0100
+
+mbpeventd (0.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Build-Depends: libasound2-dev
+
+ -- Julien BLACHE <jblache@debian.org>  Sat, 16 Dec 2006 20:50:14 +0100
+
+mbpeventd (0.8-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Build-Depends: libconfuse-dev
+    + Updated the description to include the MacBook and the Apple Remote
+  * debian/rules:
+    + Install mbpeventd(1) and mbpeventd.conf
+
+ -- Julien BLACHE <jblache@debian.org>  Thu, 14 Dec 2006 19:50:12 +0100
+
+mbpeventd (0.7-1) unstable; urgency=low
+
+  * New upstream release.
+    + Fixed Core2 Duo MacBook model identifier string.
+    + LCD backlight on the MacBook can now be switched off entirely.
+
+ -- Julien BLACHE <jblache@debian.org>  Tue, 12 Dec 2006 18:17:40 +0100
+
+mbpeventd (0.6-2) unstable; urgency=low
+
+  * debian/rules, debian/mbpeventd.postinst, debian/mbpeventd.prerm:
+    + Add init script error handler in postinst and prerm.
+
+ -- Julien BLACHE <jblache@debian.org>  Tue, 12 Dec 2006 13:43:22 +0100
+
+mbpeventd (0.6-1) unstable; urgency=low
+
+  * New upstream release. Now supports all Mac Intel laptops.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 10 Dec 2006 23:01:20 +0100
+
+mbpeventd (0.5-1) unstable; urgency=low
+
+  * New upstream release. Now with MacBook support.
+
+ -- Julien BLACHE <jblache@debian.org>  Sun, 10 Dec 2006 22:07:47 +0100
+
+mbpeventd (0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien BLACHE <jblache@debian.org>  Sat,  9 Dec 2006 22:49:24 +0100
+
+mbpeventd (0.3-1) unstable; urgency=low
+
+  * Initial release (closes: #402280).
+
+ -- Julien BLACHE <jblache@debian.org>  Sat,  9 Dec 2006 10:42:45 +0100

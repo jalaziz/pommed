@@ -1,0 +1,41 @@
+Source: pommed
+Section: utils
+Priority: optional
+Maintainer: Julien BLACHE <jblache@debian.org>
+Build-Depends: debhelper (>= 5.0.51~), libpci-dev [i386 amd64], libofapi-dev (>= 0git20070620) [powerpc], libconfuse-dev, libasound2-dev, libaudiofile-dev, libgtk2.0-dev, libdbus-1-dev, libdbus-glib-1-dev, libx11-dev, libxext-dev, libxpm-dev
+Standards-Version: 3.9.2
+
+Package: pommed
+Architecture: i386 amd64 powerpc
+Depends: ${shlibs:Depends}, ${misc:Depends}, eject
+Recommends: dbus
+Description: Apple laptops hotkeys event handler
+ pommed handles the hotkeys found on the Apple MacBook Pro, MacBook Air,
+ MacBook, PowerBook and iBook laptops and adjusts the LCD backlight, sound
+ volume, keyboard backlight or ejects the CD-ROM drive accordingly.
+ .
+ pommed also monitors the ambient light sensors to automatically
+ light up the keyboard backlight on machines that support it.
+
+Package: gpomme
+Architecture: i386 amd64 powerpc
+Depends: ${shlibs:Depends}, ${misc:Depends}, pommed (>= 1.29~dfsg-1), dbus
+Description: graphical client for pommed
+ pommed handles the hotkeys found on the Apple MacBook Pro, MacBook Air,
+ MacBook, PowerBook and iBook laptops and adjusts the LCD backlight, sound
+ volume, keyboard backlight or ejects the CD-ROM drive accordingly.
+ .
+ gpomme is a graphical client for pommed. It listens for signals sent by
+ pommed on D-Bus and displays the action taken by pommed along with the
+ current state associated to this action.
+
+Package: wmpomme
+Architecture: i386 amd64 powerpc
+Depends: ${shlibs:Depends}, ${misc:Depends}, pommed (>= 1.29~dfsg-1), dbus
+Description: WindowMaker dockapp client for pommed
+ pommed handles the hotkeys found on the Apple MacBook Pro, MacBook Air,
+ MacBook, PowerBook and iBook laptops and adjusts the LCD backlight, sound
+ volume, keyboard backlight or ejects the CD-ROM drive accordingly.
+ .
+ wmpomme is a dockapp client for pommed. It displays the current level of
+ each item controlled by pommed.

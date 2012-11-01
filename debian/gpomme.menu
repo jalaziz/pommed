@@ -1,0 +1,13 @@
+?package(gpomme):needs="X11" section="Applications/System/Monitoring"\
+  title="gpomme" command="/usr/bin/gpomme" \
+  icon="/usr/share/pixmaps/gpomme.xpm" \
+  description="gpomme provides visual feedback in the form of an \
+  On-Screen Display (OSD) when adjusting LCD brightness, sound level \
+  and keyboard brightness on Apple laptops, in conjunction with the \
+  pommed daemon"
+
+?package(gpomme):needs="X11" section="Applications/System/Monitoring"\
+  title="gpomme configuration GUI" command="/usr/bin/gpomme -c" \
+  icon="/usr/share/pixmaps/gpomme.xpm" \
+  description="The configuration GUI for gpomme allows tweaking some \
+  parameters for the On-Screen Display (OSD) displayed by gpomme"

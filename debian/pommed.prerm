@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+init_eh () {
+	:
+}
+
+#DEBHELPER#

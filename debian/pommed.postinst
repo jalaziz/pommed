@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+init_eh () {
+	:
+}
+
+if [ -x /etc/init.d/dbus ]; then
+    invoke-rc.d dbus force-reload || true
+fi
+
+#DEBHELPER#

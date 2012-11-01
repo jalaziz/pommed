@@ -1,0 +1,122 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+
+build: build-stamp
+
+build-stamp:
+	dh_testdir
+
+	# Add here commands to compile the package.
+	$(MAKE)
+
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+
+	# Add here commands to clean up after the build process.
+	$(MAKE) clean
+
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	# Install pommed
+	cp pommed/pommed $(CURDIR)/debian/pommed/usr/sbin/
+
+	mkdir -p $(CURDIR)/debian/pommed/usr/share/pommed
+	cp $(CURDIR)/pommed/data/* $(CURDIR)/debian/pommed/usr/share/pommed/
+	ln -sf goutte.wav $(CURDIR)/debian/pommed/usr/share/pommed/beep.wav
+
+	mkdir -p $(CURDIR)/debian/pommed/etc/dbus-1/system.d
+ifeq ($(shell dpkg-architecture -qDEB_BUILD_ARCH), powerpc)
+	cp pommed.conf.pmac $(CURDIR)/debian/pommed/etc/pommed.conf
+else
+	cp pommed.conf.mactel $(CURDIR)/debian/pommed/etc/pommed.conf
+endif
+	cp dbus-policy.conf $(CURDIR)/debian/pommed/etc/dbus-1/system.d/pommed.conf
+
+	# Install gpomme
+	cp gpomme/gpomme $(CURDIR)/debian/gpomme/usr/bin/
+
+	mkdir -p $(CURDIR)/debian/gpomme/usr/share/applications
+	cp gpomme/gpomme.desktop $(CURDIR)/debian/gpomme/usr/share/applications/
+	cp gpomme/gpomme-c.desktop $(CURDIR)/debian/gpomme/usr/share/applications/
+
+	for s in 16x16 22x22 24x24 32x32 36x36 48x48 64x64 72x72 96x96 128x128 192x192; do \
+		mkdir -p $(CURDIR)/debian/gpomme/usr/share/icons/hicolor/$$s/apps && \
+		cp icons/gpomme_$$s.png $(CURDIR)/debian/gpomme/usr/share/icons/hicolor/$$s/apps/gpomme.png ; \
+	done
+	mkdir -p $(CURDIR)/debian/gpomme/usr/share/icons/hicolor/scalable/apps
+	cp icons/gpomme.svg $(CURDIR)/debian/gpomme/usr/share/icons/hicolor/scalable/apps/gpomme.svg
+
+	cp icons/gpomme_32x32.xpm $(CURDIR)/debian/gpomme/usr/share/pixmaps/gpomme.xpm
+
+	mkdir -p $(CURDIR)/debian/gpomme/usr/share/gpomme
+	cp -a gpomme/themes $(CURDIR)/debian/gpomme/usr/share/gpomme
+	for t in $(CURDIR)/debian/gpomme/usr/share/gpomme/themes/*; do \
+		rm -rf $$t/src; \
+	done
+	for mo in gpomme/po/*.mo; do \
+		lang=`basename $$mo .mo`; \
+		mkdir -p $(CURDIR)/debian/gpomme/usr/share/locale/$$lang/LC_MESSAGES; \
+		cp $$mo $(CURDIR)/debian/gpomme/usr/share/locale/$$lang/LC_MESSAGES/gpomme.mo; \
+	done
+
+	# Install wmpomme
+	cp wmpomme/wmpomme $(CURDIR)/debian/wmpomme/usr/bin/
+
+	cp icons/gpomme_32x32.xpm $(CURDIR)/debian/wmpomme/usr/share/pixmaps/wmpomme.xpm
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog 
+	dh_installdocs
+#	dh_installexamples
+#	dh_install
+	dh_installmenu
+	dh_installinit --error-handler=init_eh
+	dh_installman
+	dh_link
+	dh_icons
+#	dh_desktop
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
