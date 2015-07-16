@@ -4,6 +4,8 @@ ChangeLog for pommed
 version 1.40:
     - pommed: add support for Mid 2012 Macbook Pro:
     MacBookPro9,1 (15"), MacBookPro9,2 (13"), MacBookPro10,1 (15" Retina).
+    - pommed: add support for Early/Late 2013 Macbook Pro and Mid 2013 Macbook Air:
+    MacBookPro10,2 (13" Retina), MacBookPro11,3 (15" Retina), MacbookAir6,2 (13")
 
 version 1.39:
 	- pommed: add new sysfs backlight driver apple_backlight.
