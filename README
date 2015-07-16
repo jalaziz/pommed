@@ -29,13 +29,14 @@ Supported machines:
    * MacBook Pro 13", 15", 17" (June 2009)
    * MacBook Pro Core i5/i7 15", 17" (April 2010)
    * MacBook Pro Core2 Duo 13" (April 2010)
-   * MacBook Pro Core i5/i7 13", 15", 17" (Early 2011, Mid 2012)
+   * MacBook Pro Core i5/i7 13", 15", 17" (Early 2011, Mid 2012, Early/Late 2013)
    * MacBook Core Duo (May 2006)
    * MacBook Core2 Duo (November 2006 & May 2007)
    * MacBook Core2 Duo Santa Rosa (November 2007)
    * MacBook Core2 Duo (February 2008, October 2008, October 2009, April 2010)
    * MacBook Air Core2 Duo (January 2008, October 2008)
    * MacBook Air Core2 Duo 11" & 13" (October 2010)
+   * MacBook Air Core i5/i7 13" (Mid 2013)
 
    If your MacBook Pro/MacBook Air/MacBook is not listed here, please contact us
    and include the content of /sys/class/dmi/id/product_name in your mail. Thanks.

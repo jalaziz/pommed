@@ -516,9 +516,9 @@ evdev_is_geyser4hf(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if ((product == USB_PRODUCT_ID_GEYSER4HF_ANSI)
-      || (product == USB_PRODUCT_ID_GEYSER4HF_ISO)
-      || (product == USB_PRODUCT_ID_GEYSER4HF_JIS))
+  if ((product == USB_PRODUCT_ID_GEYSER4_HF_ANSI)
+      || (product == USB_PRODUCT_ID_GEYSER4_HF_ISO)
+      || (product == USB_PRODUCT_ID_GEYSER4_HF_JIS))
     {
       logdebug(" -> Geyser IV-HF USB assembly\n");
 
@@ -718,7 +718,58 @@ evdev_is_wellspring5a(unsigned short *id)
   return 0;
 }
 
-/* MacBookPro10,1 (15" Retina Mid 2012) */
+static int
+evdev_is_wellspring6(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+    return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+    return 0;
+
+  if ((product == USB_PRODUCT_ID_WELLSPRING6_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING6_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING6_JIS))
+    {
+      logdebug(" -> WellSpring VI USB assembly\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
+static int
+evdev_is_wellspring6a(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+   return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+   return 0;
+
+  if ((product == USB_PRODUCT_ID_WELLSPRING6A_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING6A_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING6A_JIS))
+    {
+      logdebug(" -> WellSpring VIa USB assembly\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
+/* MacBookPro10,1 (15" Retina Mid 2012/Early 2013) */
+/* MacBookPro11,3 (15" Retina Late 2013) */
 static int
 evdev_is_wellspring7(unsigned short *id)
 {
@@ -744,6 +795,58 @@ evdev_is_wellspring7(unsigned short *id)
   return 0;
 }
 
+/* MacBookPro10,2 (13" Retina Early/Late 2013) */
+static int
+evdev_is_wellspring7a(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+   return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+   return 0;
+
+  if ((product == USB_PRODUCT_ID_WELLSPRING7A_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING7A_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING7A_JIS))
+    {
+      logdebug(" -> WellSpring VIIa USB assembly\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
+/* MacbookAir6,2 (13" Mid 2013) */
+static int
+evdev_is_wellspring8(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+   return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+   return 0;
+
+  if ((product == USB_PRODUCT_ID_WELLSPRING8_ANSI)
+      || (product == USB_PRODUCT_ID_WELLSPRING8_ISO)
+      || (product == USB_PRODUCT_ID_WELLSPRING8_JIS))
+    {
+      logdebug(" -> WellSpring VIII USB assembly\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
 /* Any internal keyboard */
 static int
 evdev_is_internal(unsigned short *id)
@@ -758,7 +861,11 @@ evdev_is_internal(unsigned short *id)
 	  || evdev_is_wellspring4a(id)
 	  || evdev_is_wellspring5(id)
     || evdev_is_wellspring5a(id)
-    || evdev_is_wellspring7(id));
+    || evdev_is_wellspring6(id)
+    || evdev_is_wellspring6a(id)
+    || evdev_is_wellspring7(id)
+    || evdev_is_wellspring7a(id)
+    || evdev_is_wellspring8(id));
 }
 
 
@@ -775,7 +882,10 @@ evdev_is_appleir(unsigned short *id)
     return 0;
 
   if ((product == USB_PRODUCT_ID_APPLEIR)
-      || (product == USB_PRODUCT_ID_APPLEIR_2))
+      || (product == USB_PRODUCT_ID_APPLEIR_2)
+      || (product == USB_PRODUCT_ID_APPLEIR_3)
+      || (product == USB_PRODUCT_ID_APPLEIR_4)
+      || (product == USB_PRODUCT_ID_APPLEIR_5))
     {
       logdebug(" -> Apple IR receiver\n");
 
@@ -820,7 +930,7 @@ evdev_is_extkbd_white(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if (product == USB_PRODUCT_ID_APPLE_EXTKBD_WHITE)
+  if (product == USB_PRODUCT_ID_EXTKBD_WHITE)
     {
       logdebug(" -> External Apple USB keyboard (white)\n");
 
@@ -834,7 +944,7 @@ evdev_is_extkbd_white(unsigned short *id)
 
 /* Apple external USB mini keyboard, aluminium */
 static int
-evdev_is_extkbd_mini_alu(unsigned short *id)
+evdev_is_extkbd_alu_mini(unsigned short *id)
 {
   unsigned short product = id[ID_PRODUCT];
 
@@ -844,9 +954,9 @@ evdev_is_extkbd_mini_alu(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if ((product == USB_PRODUCT_ID_APPLE_EXTKBD_MINI_ALU_ANSI)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_MINI_ALU_ISO)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_MINI_ALU_JIS))
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_MINI_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_MINI_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_MINI_JIS))
     {
       logdebug(" -> External Apple USB mini keyboard (aluminium)\n");
 
@@ -870,11 +980,37 @@ evdev_is_extkbd_alu(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if ((product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_ANSI)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_ISO)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_JIS))
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_JIS))
     {
       logdebug(" -> External Apple USB keyboard (aluminium)\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
+/* Apple external USB keyboard, aluminium, newer model */
+static int
+evdev_is_extkbd_alu_revb(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_USB)
+    return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+    return 0;
+
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_REVB_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_REVB_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_REVB_JIS))
+    {
+      logdebug(" -> External Apple USB keyboard 2 (aluminium)\n");
 
       kbd_set_fnmode();
 
@@ -896,9 +1032,9 @@ evdev_is_extkbd_alu_wl(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if ((product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_ANSI)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_ISO)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_JIS))
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_WL_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_JIS))
     {
       logdebug(" -> External Apple wireless keyboard (aluminium)\n");
 
@@ -910,9 +1046,9 @@ evdev_is_extkbd_alu_wl(unsigned short *id)
   return 0;
 }
 
-/* Apple external wireless keyboard, aluminium, newer model */
+/* Apple external wireless keyboard, aluminium, 2009 model */
 static int
-evdev_is_extkbd_alu_wl_2(unsigned short *id)
+evdev_is_extkbd_alu_wl_2009(unsigned short *id)
 {
   unsigned short product = id[ID_PRODUCT];
 
@@ -922,11 +1058,37 @@ evdev_is_extkbd_alu_wl_2(unsigned short *id)
   if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
     return 0;
 
-  if ((product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_2_ANSI)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_2_ISO)
-      || (product == USB_PRODUCT_ID_APPLE_EXTKBD_ALU_WL_2_JIS))
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2009_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2009_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2009_JIS))
     {
-      logdebug(" -> External Apple wireless keyboard 2 (aluminium)\n");
+      logdebug(" -> External Apple wireless keyboard 2009 (aluminium)\n");
+
+      kbd_set_fnmode();
+
+      return 1;
+    }
+
+  return 0;
+}
+
+/* Apple external wireless keyboard, aluminium, 2011 model */
+static int
+evdev_is_extkbd_alu_wl_2011(unsigned short *id)
+{
+  unsigned short product = id[ID_PRODUCT];
+
+  if (id[ID_BUS] != BUS_BLUETOOTH)
+    return 0;
+
+  if (id[ID_VENDOR] != USB_VENDOR_ID_APPLE)
+    return 0;
+
+  if ((product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2011_ANSI)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2011_ISO)
+      || (product == USB_PRODUCT_ID_EXTKBD_ALU_WL_2011_JIS))
+    {
+      logdebug(" -> External Apple wireless keyboard 2011 (aluminium)\n");
 
       kbd_set_fnmode();
 
@@ -941,10 +1103,12 @@ static int
 evdev_is_extkbd(unsigned short *id)
 {
   return (evdev_is_extkbd_white(id)
-	  || evdev_is_extkbd_mini_alu(id)
+	  || evdev_is_extkbd_alu_mini(id)
 	  || evdev_is_extkbd_alu(id)
+	  || evdev_is_extkbd_alu_revb(id)
 	  || evdev_is_extkbd_alu_wl(id)
-	  || evdev_is_extkbd_alu_wl_2(id));
+	  || evdev_is_extkbd_alu_wl_2009(id)
+	  || evdev_is_extkbd_alu_wl_2011(id));
 }
 
 /* Mouseemu virtual keyboard */
