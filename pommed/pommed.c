@@ -802,8 +802,11 @@ check_machine_dmi(void)
   else if ((strcmp(buf, "MacBookPro10,1") == 0)
      || (strcmp(buf, "MacBookPro10,2") == 0))
     ret = MACHINE_MACBOOKPRO_10;
-  /* Macbook Pro 15" Retina (Late 2013) */
-  else if ((strcmp(buf, "MacBookPro11,3") == 0))
+  /* Macbook Pro 13" Retina (Late 2013)
+   * Macbook Pro 15" Retina (Late 2013) 
+   */
+  else if ((strcmp(buf, "MacBookPro11,1") == 0)
+     || (strcmp(buf, "MacBookPro11,3") == 0))
     ret = MACHINE_MACBOOKPRO_11;
   /* Core Duo MacBook (May 2006) */
   else if (strcmp(buf, "MacBook1,1") == 0)
