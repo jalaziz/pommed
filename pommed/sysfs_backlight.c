@@ -67,6 +67,7 @@ static char *actual_brightness[] =
     "/sys/class/backlight/rivabl0/actual_brightness",
 #else
     "/sys/class/backlight/mbp_backlight/actual_brightness",
+    "/sys/class/backlight/mba6x_backlight/actual_brightness",
     "/sys/class/backlight/apple_backlight/actual_brightness",
     "/sys/class/backlight/gmux_backlight/actual_brightness",
     "/sys/class/backlight/nvidia_backlight/actual_brightness",
@@ -86,6 +87,7 @@ static char *brightness[] =
     "/sys/class/backlight/rivabl0/brightness",
 #else
     "/sys/class/backlight/mbp_backlight/brightness",
+    "/sys/class/backlight/mba6x_backlight/brightness",
     "/sys/class/backlight/apple_backlight/brightness",
     "/sys/class/backlight/gmux_backlight/brightness",
     "/sys/class/backlight/nvidia_backlight/brightness",
@@ -105,6 +107,7 @@ static char *max_brightness[] =
     "/sys/class/backlight/rivabl0/max_brightness",
 #else
     "/sys/class/backlight/mbp_backlight/max_brightness",
+    "/sys/class/backlight/mba6x_backlight/max_brightness",
     "/sys/class/backlight/apple_backlight/max_brightness",
     "/sys/class/backlight/gmux_backlight/max_brightness",
     "/sys/class/backlight/nvidia_backlight/max_brightness",
