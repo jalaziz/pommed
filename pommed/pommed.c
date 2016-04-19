@@ -427,7 +427,15 @@ struct machine_ops mb_mops[] = {
     /* .evdev_identify = evdev_is_wellspring4a / evdev_is_wellspring4, */
   },
 
-  {  /* MacbookAir6,2 (13" Mid 2013) */
+  {  /* MacBookAir6,1 (13" Mid 2013) */
+    .type = MACHINE_MACBOOKAIR_6,
+    .lcd_backlight_probe = mbp_sysfs_backlight_probe,
+    .lcd_backlight_step = sysfs_backlight_step,
+    .lcd_backlight_toggle = sysfs_backlight_toggle,
+    /* .evdev_identify = evdev_is_wellspring8, */
+  },
+
+  {  /* MacBookAir6,2 (13" Mid 2013) */
     .type = MACHINE_MACBOOKAIR_6,
     .lcd_backlight_probe = mbp_sysfs_backlight_probe,
     .lcd_backlight_step = sysfs_backlight_step,
@@ -838,6 +846,9 @@ check_machine_dmi(void)
   /* MacBook Air 11" & 13" (October 2010) */
   else if ((strcmp(buf, "MacBookAir3,1") == 0) || (strcmp(buf, "MacBookAir3,2") == 0))
     ret = MACHINE_MACBOOKAIR_3;
+  /* MacBook Air 13" (Mid 2013) */
+  else if (strcmp(buf, "MacBookAir6,1") == 0)
+    ret = MACHINE_MACBOOKAIR_6;
   /* MacBook Air 13" (Mid 2013) */
   else if (strcmp(buf, "MacBookAir6,2") == 0)
     ret = MACHINE_MACBOOKAIR_6;
