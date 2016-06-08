@@ -73,6 +73,7 @@ static char *actual_brightness[] =
     "/sys/class/backlight/nvidia_backlight/actual_brightness",
     "/sys/class/backlight/nv_backlight/actual_brightness",
     "/sys/class/backlight/acpi_video0/actual_brightness",
+    "/sys/class/backlight/intel_backlight/actual_brightness",
 #endif
   };
 
