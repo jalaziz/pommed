@@ -335,7 +335,9 @@ struct machine_ops mb_mops[] = {
     /* .evdev_identify = evdev_is_wellspring7a / evdev_is_wellspring7, */
   },
 
-  { /* MacBookPro11,3 (15" Retina, Late 2013) */
+  { /* MacBookPro11,1 (13" Retina, 2014)
+     * MacBookPro11,3 (15" Retina, Late 2013)
+     */
     .type = MACHINE_MACBOOKPRO_11,
     .lcd_backlight_probe = mbp_sysfs_backlight_probe,
     .lcd_backlight_step = sysfs_backlight_step,
