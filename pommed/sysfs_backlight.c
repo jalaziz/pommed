@@ -94,6 +94,7 @@ static char *brightness[] =
     "/sys/class/backlight/nvidia_backlight/brightness",
     "/sys/class/backlight/nv_backlight/brightness",
     "/sys/class/backlight/acpi_video0/brightness",
+    "/sys/class/backlight/intel_backlight/brightness",
 #endif
   };
 
@@ -114,6 +115,7 @@ static char *max_brightness[] =
     "/sys/class/backlight/nvidia_backlight/max_brightness",
     "/sys/class/backlight/nv_backlight/max_brightness",
     "/sys/class/backlight/acpi_video0/max_brightness",
+    "/sys/class/backlight/intel_backlight/max_brightness",
 #endif
   };
 
